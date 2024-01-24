@@ -222,16 +222,16 @@ def train(df: pd.DataFrame,
 
 def main():
     df = pd.read_parquet("training_data.parquet")
-
-    encoder, model, df_train, df_val = train(df)
+    df_train, df_test = split(df)
+    df_test.to_parquet("df_test.parquet")
+    df_test.to_parquet("df_train.parquet")
+    encoder, model, df_train, df_val = train(df_train)
 
     with open("encoder.pickle", "wb") as f:
         pickle.dump(encoder, f)
 
     with open("model.pickle", "wb") as f:
         pickle.dump(model, f)
-    df_train.to_parquet("df_train.parquet")
-    df_val.to_parquet("df_val.parquet")
 
 
 if __name__ == "__main__":
