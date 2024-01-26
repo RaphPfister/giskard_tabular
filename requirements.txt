@@ -6,5 +6,6 @@ tensorflow-probability==0.23.0
 matplotlib==3.8.2
 seaborn==0.13.1
 giskard[hub]==2.5.3
+click==8.1.7
 pylint
 pytest
