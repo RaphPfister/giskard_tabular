@@ -1,14 +1,16 @@
 # Homework for giskard
 
 This project contains a ML project that aims at predicting the departure delay of American Airline.
-This is more of a really small prototype to quickly plug giskard library and hub into it.
+This is more of a small prototype to quickly plug giskard library and hub into it than a heavy, industrial use-case.
 
 See the related [medium article](https://medium.com/@raphael.pfister.00/debug-your-machine-learning-models-with-giskardai-a-quick-tour-on-model-robustness-993e383a2a35).
 
 The `delay_predictor/` directory contains all the required sources to process the data (`Flight_delay.csv`) and train a tensorflow model.
 Note that I didn't necessarily picked tensorflow for any particular reason, I just got inspiration from another model I initiated at my current position at Air France-KLM. That model uses `tensorflow_probability`'s `DistributionLayer` as a final layer to predict a conditional probability of delay, given the flight data.
 
-`basic_pipeline_v1.ipynb` illustrates a workflow with a training pipeline and test case with giskard in a jupyter notebook. 
+`basic_pipeline_v1.ipynb` illustrates a workflow with a training pipeline and a few test cases with giskard in a jupyter notebook.
+
+(feedbacks.md)[./feedback.md] contains my feedback after my experience with giskard.
 
 ## Get started
 
