@@ -66,7 +66,7 @@ def get_previous_arrrival_delay(df: pd.DataFrame) -> pd.DataFrame:
 
     mask_unsane_previous_flights = df["previous_destination"] != df["Origin"]
 
-    df[mask_unsane_previous_flights][["previous_arrival_delay"]] = -1
+    df.loc[mask_unsane_previous_flights, "previous_arrival_delay"] = -1
     df["previous_arrival_delay"] = df["previous_arrival_delay"].fillna(-1)
     df.reset_index(drop=True)
 

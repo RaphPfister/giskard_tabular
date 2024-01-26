@@ -1,7 +1,6 @@
 """
 Functions to make the base training routine
 """
-from types import NoneType
 from typing import List, Union, Tuple
 import pickle
 
@@ -221,18 +220,24 @@ def train(df: pd.DataFrame,
 
 
 def main():
+    """
+    Entrypoint of the trainer
+    """
+    
     df = pd.read_parquet("training_data.parquet")
     df_train, df_test = split(df)
-    df_test.to_parquet("df_test.parquet")
-    df_test.to_parquet("df_train.parquet")
+
     encoder, model, df_train, df_val = train(df_train)
+    
+    df_train.to_parquet("df_train.parquet")
+    df_val.to_parquet("df_val.parquet")
+    df_test.to_parquet("df_test.parquet")
 
     with open("encoder.pickle", "wb") as f:
         pickle.dump(encoder, f)
 
     with open("model.pickle", "wb") as f:
         pickle.dump(model, f)
-
 
 if __name__ == "__main__":
     main()
