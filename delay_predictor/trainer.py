@@ -1,10 +1,10 @@
 """
 Functions to make the base training routine
 """
-from types import NoneType
 from typing import List, Union, Tuple
 import pickle
 
+import click
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
@@ -219,20 +219,28 @@ def train(df: pd.DataFrame,
 
     return encoder, model, df_train, df_val
 
-
-def main():
+@click.command()
+@click.option('--learning-rate', default=0.1, help='Learning rate of the optimizer')
+@click.option('--epochs', default=10, help='Number of epochs')
+def main(learning_rate: float, epochs: int):
+    """
+    Entrypoint of the trainer
+    """
+    
     df = pd.read_parquet("training_data.parquet")
     df_train, df_test = split(df)
-    df_test.to_parquet("df_test.parquet")
-    df_test.to_parquet("df_train.parquet")
+
     encoder, model, df_train, df_val = train(df_train)
+    
+    df_train.to_parquet("df_train.parquet")
+    df_val.to_parquet("df_val.parquet")
+    df_test.to_parquet("df_test.parquet")
 
     with open("encoder.pickle", "wb") as f:
         pickle.dump(encoder, f)
 
     with open("model.pickle", "wb") as f:
         pickle.dump(model, f)
-
 
 if __name__ == "__main__":
     main()

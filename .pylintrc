@@ -163,7 +163,7 @@ evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / stateme
 [BASIC]
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=main,_,df,x,X,y,i,q,X_train,X_test,X_val
+good-names=main,_,df,df_val,x,X,y,i,q,X_train,X_test,X_val,X_encoded,X_multi_input,X_train_encoded,X_train_encoded,X_train_input,X_val_encoded,X_val_input
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=

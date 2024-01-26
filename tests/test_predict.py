@@ -32,13 +32,6 @@ def test_previous_arrival_delay_increase(df, giskard_dataset, increase_previous_
         cat_columns=CATEGORICAL
     )
 
-    giskard_dataset = giskard.Dataset(
-        df=df,
-        target="departure_delay",
-        name="flight_delays",
-        cat_columns=CATEGORICAL
-    )
-
     test = giskard.testing.test_metamorphic_increasing(
         model=giskard_model,
         dataset=giskard_dataset,
