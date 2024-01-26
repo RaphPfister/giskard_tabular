@@ -10,7 +10,7 @@ Note that I didn't necessarily picked tensorflow for any particular reason, I ju
 
 `basic_pipeline_v1.ipynb` illustrates a workflow with a training pipeline and a few test cases with giskard in a jupyter notebook.
 
-(feedbacks.md)[./feedback.md] contains my feedback after my experience with giskard.
+[feedback.md](./feedback.md) contains my feedback after my experience with giskard.
 
 ## Get started
 
