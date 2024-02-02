@@ -18,6 +18,7 @@ Create and activate a new conda environment using:
 
 ```bash
 conda create -n giskard310 python=3.10
+conda activate giskard310
 pip install -r requirements.txt
 ```
 
